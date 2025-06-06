@@ -1,0 +1,28 @@
+package com.mercado.stock.entity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+public class DetalleVenta {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "venta_id", nullable = false)
+    private Long ventaId;
+
+    @ManyToOne
+    @JoinColumn(name = "producto_id")
+    private Producto producto;
+
+    private Integer cantidad;
+
+    @Column(name = "precio_unitario", nullable = false)
+    private Double precioUnitario;
+    private Double subtotal;
+}
