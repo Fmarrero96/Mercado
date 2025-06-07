@@ -1,5 +1,6 @@
 package com.mercado.stock.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,8 @@ public class Usuario {
 
     private String password;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rol_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Rol rol;
 }

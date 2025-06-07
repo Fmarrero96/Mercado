@@ -60,4 +60,9 @@ public class ProductoController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/stock-bajo")
+    public List<Producto> productosConStockBajo(@RequestParam(defaultValue = "5") int limite) {
+        return productoService.obtenerProductosConStockBajo(limite);
+    }
 }
