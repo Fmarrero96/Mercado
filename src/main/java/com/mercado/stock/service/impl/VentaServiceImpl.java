@@ -34,11 +34,11 @@ public class VentaServiceImpl implements VentaService {
             Producto producto = productoRepository.findById(d.getProductoId())
                     .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
 
-            if (producto.getStock() < d.getCantidad()) {
+            if (producto.getStock() < d.getCantidad().intValue()) {
                 throw new IllegalArgumentException("Stock insuficiente para " + producto.getNombre());
             }
 
-            producto.setStock(producto.getStock() - d.getCantidad());
+            producto.setStock(producto.getStock() - d.getCantidad().intValue());
             productoRepository.save(producto);
 
             DetalleVenta detalle = new DetalleVenta();

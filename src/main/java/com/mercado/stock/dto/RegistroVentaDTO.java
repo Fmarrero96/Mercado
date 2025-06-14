@@ -15,6 +15,6 @@ public class RegistroVentaDTO {
     @Setter
     public static class DetalleDTO {
         private Long productoId;
-        private Integer cantidad;
+        private Double cantidad;
     }
 }

@@ -13,16 +13,17 @@ public class DetalleVenta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "venta_id", nullable = false)
+    @Column(name = "venta_id")
     private Long ventaId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "producto_id")
     private Producto producto;
 
-    private Integer cantidad;
+    private Double cantidad;
 
     @Column(name = "precio_unitario", nullable = false)
     private Double precioUnitario;
+    
     private Double subtotal;
 }

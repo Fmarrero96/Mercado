@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,7 @@ public class Venta {
     @Column(name = "usuario_id", nullable = false)
     private Long usuarioId;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "venta_id")
-    private List<DetalleVenta> detalles;
+    private List<DetalleVenta> detalles = new ArrayList<>();
 }

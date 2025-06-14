@@ -24,7 +24,7 @@ public class Movimiento {
     private TipoMovimiento tipo;
 
     @Column(nullable = false)
-    private Integer cantidad;
+    private Double cantidad;
 
     @Column(nullable = false)
     private LocalDateTime fecha = LocalDateTime.now();

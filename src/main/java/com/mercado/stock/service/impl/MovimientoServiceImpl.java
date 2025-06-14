@@ -31,12 +31,12 @@ public class MovimientoServiceImpl implements MovimientoService {
                 .orElseThrow(() -> new IllegalArgumentException("Producto no encontrado"));
 
         if (movimiento.getTipo() == Movimiento.TipoMovimiento.ENTRADA) {
-            producto.setStock(producto.getStock() + movimiento.getCantidad());
+            producto.setStock(producto.getStock() + movimiento.getCantidad().intValue());
         } else {
-            if (producto.getStock() < movimiento.getCantidad()) {
+            if (producto.getStock() < movimiento.getCantidad().intValue()) {
                 throw new IllegalArgumentException("Stock insuficiente");
             }
-            producto.setStock(producto.getStock() - movimiento.getCantidad());
+            producto.setStock(producto.getStock() - movimiento.getCantidad().intValue());
         }
 
         productoRepository.save(producto);

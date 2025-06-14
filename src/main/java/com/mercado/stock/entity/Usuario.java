@@ -21,7 +21,7 @@ public class Usuario {
 
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rol_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Rol rol;
